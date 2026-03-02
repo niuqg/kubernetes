@@ -1,25 +1,47 @@
 # Kubernetes (K8s)
-
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/569/badge)](https://bestpractices.coreinfrastructure.org/projects/569) [![Go Report Card](https://goreportcard.com/badge/github.com/kubernetes/kubernetes)](https://goreportcard.com/report/github.com/kubernetes/kubernetes) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/kubernetes/kubernetes?sort=semver)
 
 <img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" width="100">
 
 ----
 
-Kubernetes, also known as K8s, is an open source system for managing [containerized applications]
-across multiple hosts. It provides basic mechanisms for the deployment, maintenance,
-and scaling of applications.
+## 项目介绍
 
-Kubernetes builds upon a decade and a half of experience at Google running
-production workloads at scale using a system called [Borg],
-combined with best-of-breed ideas and practices from the community.
+Kubernetes (简称 K8s) 是一个开源的容器编排平台，用于自动化部署、扩展和管理容器化应用程序。它构建于 Google 十五年大规模生产环境容器化工作负载管理经验之上，结合了社区的最佳实践和创新理念。
 
-Kubernetes is hosted by the Cloud Native Computing Foundation ([CNCF]).
-If your company wants to help shape the evolution of
-technologies that are container-packaged, dynamically scheduled,
-and microservices-oriented, consider joining the CNCF.
-For details about who's involved and how Kubernetes plays a role,
-read the CNCF [announcement].
+### 核心特性：
+
+* **自动化部署与回滚**：支持声明式配置，轻松部署应用，支持滚动更新和自动回滚失败的部署
+
+* **服务发现与负载均衡**：内置 DNS 和负载均衡，无需修改应用即可实现服务间通信
+
+* **存储编排**：自动挂载各种存储系统，包括本地存储、云存储、网络存储等
+
+* **自动扩缩容**：根据 CPU 使用率或自定义指标自动调整应用副本数
+
+* **自我修复**：自动重启失败的容器，替换和重新调度节点故障的 Pods，杀死健康检查失败的容器
+
+* **密钥与配置管理**：部署和更新密码、OAuth token 和 SSH key 等敏感信息
+
+* **批量执行**：支持一次性任务和批处理工作负载
+
+### 核心架构
+
+Kubernetes 由以下核心组件组成：
+
+* **控制平面（Control Plane）
+  * kube-apiserver：集群的统一入口，提供 REST API
+  * etcd：集群的键值数据库，存储集群状态
+  * kube-scheduler：Pod 调度器，决定 Pod 在哪个节点运行
+  * kube-controller-manager：运行控制器，维护集群状态
+
+* **节点组件（Node Components）
+  * kubelet：运行在每个节点上的代理，管理容器生命周期
+  * kube-proxy：网络代理，维护网络规则
+  * 容器运行时：如 Docker、containerd、CRI-O
+
+Kubernetes 由云原生计算基金会 ([CNCF]) 托管。如果贵公司希望参与推动容器打包、动态调度和微服务技术的发展，欢迎加入 CNCF。
+详情请参阅 CNCF [公告]。
 
 ----
 
